@@ -45,8 +45,6 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     setTransactions(response.data);
   }, [])
 
-
-
   const createTransaction = useCallback(async (data: CreateTransactionInput) => {
     const { description, price, category, type } = data
     const response = await api.post('/transactions', {
@@ -62,7 +60,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
   useEffect(() => {
     fetchTransactios()
-  }, [])
+  }, [fetchTransactios])
 
   return (
     <TransactionsContext.Provider value={{ transactions, fetchTransactios, createTransaction }} >
