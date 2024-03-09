@@ -23,7 +23,6 @@ export function SearchForm() {
   })
 
   async function handleSearchTransaction(data: SearchFormImputs) {
-    await new Promise(resolve => setTimeout(resolve, 2000))
     await fetchTransactios(data.query)
   }
 
